@@ -3,6 +3,7 @@ from variables import *
 from style import *
 from utils import *
 from display import *
+from info import *
 
 class Buttons(QPushButton):
     def __init__(self, *args, **kwargs):
@@ -15,9 +16,9 @@ class Buttons(QPushButton):
         font.setBold(True)
         self.setFont(font)
         # self.setCheckable(True)
-        
+
 class ButtonsGrid(QGridLayout):
-    def __init__(self, display: Display, *args, **kwargs): # passando o acesso do display do aplicativo para a grid
+    def __init__(self, display: Display,info: Info, *args, **kwargs): # passando o acesso do display do aplicativo para a grid
         super().__init__(*args, **kwargs)
 
         self.gridMask = [
@@ -28,6 +29,7 @@ class ButtonsGrid(QGridLayout):
                 ['',  '0', '.', '='],
             ]
         self.display = display # passando o acesso do display do aplicativo para a grid
+        self.info = info
         self.makeGrid()
 
     def makeGrid(self):
@@ -53,5 +55,12 @@ class ButtonsGrid(QGridLayout):
 
     def insertButtonTextToDisplay(self, button):
         buttonText = button.text()
+
+        newDisplayValue = self.display.text() + buttonText
+
+        if not isValidNumber(newDisplayValue):
+            return
+
         self.display.insert(buttonText)
         # print(button.text(), checked)
+        

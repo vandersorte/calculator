@@ -6,7 +6,7 @@ from buttons import * # importação dos botões
 from variables import * # variáveis usadas no aplicativo
 from main_window import * # base de criação do aplicativo
 from PySide6.QtGui import QIcon
-from PySide6.QtWidgets import QApplication, QMainWindow, QWidget, QVBoxLayout, QHBoxLayout, QLabel
+from PySide6.QtWidgets import QApplication, QMainWindow, QWidget, QVBoxLayout, QHBoxLayout, QLabel, QTextEdit
 
 # cria o widget label para o layout
 def label_layout(text):
@@ -38,7 +38,7 @@ if __name__ == '__main__':
 
     # Display
     display = Display()
-    window.addWidgetToVLayout(display)    
+    window.addWidgetToVLayout(display)
 
     # Grid
     buttonsGrid = ButtonsGrid(display)

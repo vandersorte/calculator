@@ -1,4 +1,4 @@
-from PySide6.QtWidgets import QLineEdit # importação para criar o display da calculadora
+from PySide6.QtWidgets import QLineEdit, QTextEdit # importação para criar o display da calculadora
 from PySide6.QtCore import Qt # importasão do alinhamento do texto(display)
 from variables import *
 
